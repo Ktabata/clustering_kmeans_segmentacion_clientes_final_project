@@ -3,6 +3,8 @@ import pickle
 import pandas as pd
 import numpy as np
 import os
+import segmentación_de_clientes_clustering_kmeans  # Importar el script donde está definido el modelo y funciones de preprocesamiento
+from segmentación_de_clientes_clustering_kmeans import load_model, classify_product, customer_features_train, scaled_features_train, customer_ratios_train preprocess_data, predict_cluster  # Importa funciones específicas
 #import altair as alt
 #import plotly.express as px
 
@@ -11,6 +13,8 @@ with open('clustering_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 st.title('Segmentación')
+
+data = customer_features_train
 
 # 2. Definir la función de predicción
 def predict_customer_cluster(data):
